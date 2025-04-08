@@ -1,12 +1,26 @@
 // app.js
-document.getElementById('inputText').addEventListener('input', function () {
-  const inputText = this.value;
-  const resultDiv = document.getElementById('result');
+
+// Function to handle the button click
+function handleButtonClick() {
+  const inputText = document.getElementById('inputText').value; // Get the value from the input
+  const resultDiv = document.getElementById('result'); // Get the result div
   
-  if (inputText.length === 0) {
-    resultDiv.textContent = "Please type something!";
-  } else {
-    // Example of simple logic
-    resultDiv.textContent = `You typed: ${inputText}`;
-  }
-});
+  var result = getResult(inputText);
+  
+  resultDiv.textContent = result; // Display the result
+}
+
+function getResult(key) {
+	const answers = {
+    "key1": "Answer for key 1.",
+    "key2": "Answer for key 2.",
+    "key3": "Answer for key 3.",
+    "key4": "Answer for key 4."
+  };
+
+  // Return the corresponding answer based on the key, or the default if not found
+  return answers[key] || "Cod incorect.";
+}
+
+// Add an event listener to the button
+document.getElementById('submitButton').addEventListener('click', handleButtonClick);
