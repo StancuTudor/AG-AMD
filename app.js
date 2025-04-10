@@ -148,3 +148,9 @@ function getResult(key) {
 
 // Add an event listener to the button
 document.getElementById('submitButton').addEventListener('click', handleButtonClick);
+
+document.getElementById('inputText').addEventListener('keydown', function (event) {
+  if (event.key === 'Enter') {
+    handleButtonClick();
+  }
+});
